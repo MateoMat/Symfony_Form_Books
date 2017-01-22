@@ -8,6 +8,10 @@
         {{ form_start(form,{'attr':{'class':'form-group'} }) }}
         {{ form_widget(form.name,{'attr':{'placeholder':'Imię i Nazwisko','class':'form-control'} }) }}
         {{ form_widget(form.save,{'attr':{'class':'btn btn-success btn-xs','style':'margin-top:20px;'} }) }}
+        <a href="/author/showAll" class="btn btn-warning btn-xs" style="margin-top:20px;">Anuluj</a>
         {{ form_end(form) }}
+        
+        
+        
     </form>
 {% endblock %}
