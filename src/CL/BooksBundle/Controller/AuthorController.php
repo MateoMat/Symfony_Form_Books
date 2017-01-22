@@ -23,6 +23,20 @@ class AuthorController extends Controller
             'authors'=>$authors
         ));
     }
+    
+    /**
+     * @Route("/author/show/{id})
+     */
+    public function showAction($id){
+        
+        $author=$this->getDoctrine()
+                ->getRepository('CLBooksBundle:Author')
+                ->findOneById($id);
+        
+        return $this->render('CLBooksBundle:Author:show_all.html.twig', array(
+            'author'=>$author
+        ));
+    }
 
     /**
      * @Route("/author/create")
