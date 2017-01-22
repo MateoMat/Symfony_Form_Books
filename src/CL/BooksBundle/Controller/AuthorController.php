@@ -67,6 +67,17 @@ class AuthorController extends Controller
             // ...
         ));
     }
+    
+    private function createAuthorForm(Author $authorObj,$url){
+        $form=$this->createFormBuilder($authorObj)
+                ->setAction($url)
+                ->setMethod('POST')
+                ->add('name','text')
+                ->add('save','submit',array('label_attr'=>'Zapisz'))
+                ->getForm();
+        
+        return $form;
+    }
 
     
 
