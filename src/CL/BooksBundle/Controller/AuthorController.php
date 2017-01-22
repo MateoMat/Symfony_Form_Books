@@ -63,12 +63,31 @@ class AuthorController extends Controller
     }
 
     /**
-     * @Route("/author/edit/{id}")
+     * @Route("/author/edit/{id}",name="CLBook_author_edit")
      */
-    public function editAction($id)
+    public function editAction(Request $req,$id)
     {
-        return $this->render('CLBooksBundle:Author:edit.html.twig', array(
-            // ...
+        
+        $author=$this->getDoctrine()
+                ->getRepository('CLBooksBundle:Author')
+                ->findOneById($id);
+                
+        $url=$this->generateUrl('CLBook_author_edit',array('id'=>$id));
+        $form=$this->createAuthorForm($author, $url);
+        
+        $form->handleRequest($req);
+        
+        if($form->isSubmitted()){
+            
+            $em=$this->getDoctrine()->getManager();
+            
+            $em->flush();
+            
+            return $this->redirect($this->generateUrl('CLBook_author_showAll'));
+        }
+        
+        return $this->render('CLBooksBundle:Author:create.html.twig', array(
+            'form'=>$form->createView()
         ));
     }
 
@@ -77,9 +96,15 @@ class AuthorController extends Controller
      */
     public function deleteAction($id)
     {
-        return $this->render('CLBooksBundle:Author:delete.html.twig', array(
-            // ...
-        ));
+        
+        $author=$this->getDoctrine()->getRepository('CLBooksBundle:Author')->findOneById($id);
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($author);
+        $em->flush();
+        
+        
+        return $this->redirect($this->generateUrl('CLBook_author_showAll'));
+        
     }
     
     private function createAuthorForm(Author $authorObj,$url){

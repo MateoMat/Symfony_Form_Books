@@ -4,8 +4,7 @@
 
 {% block body %}
     <h1>Welcome to the Author Create Page</h1>
-    <form class="jumbotron">
-        {{ form_start(form,{'attr':{'class':'form-group'} }) }}
+        {{ form_start(form,{'attr':{'class':'form-group jumbotron'} }) }}
         {{ form_widget(form.name,{'attr':{'placeholder':'Imię i Nazwisko','class':'form-control'} }) }}
         {{ form_widget(form.save,{'attr':{'class':'btn btn-success btn-xs','style':'margin-top:20px;'} }) }}
         <a href="/author/showAll" class="btn btn-warning btn-xs" style="margin-top:20px;">Anuluj</a>
@@ -13,5 +12,5 @@
         
         
         
-    </form>
+    
 {% endblock %}
