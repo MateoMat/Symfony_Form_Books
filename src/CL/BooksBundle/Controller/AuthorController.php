@@ -25,7 +25,7 @@ class AuthorController extends Controller
     }
     
     /**
-     * @Route("/author/show/{id})
+     * @Route("/author/show/{id}")
      */
     public function showAction($id){
         
@@ -33,7 +33,7 @@ class AuthorController extends Controller
                 ->getRepository('CLBooksBundle:Author')
                 ->findOneById($id);
         
-        return $this->render('CLBooksBundle:Author:show_all.html.twig', array(
+        return $this->render('CLBooksBundle:Author:show.html.twig', array(
             'author'=>$author
         ));
     }
@@ -68,14 +68,6 @@ class AuthorController extends Controller
         ));
     }
 
-    /**
-     * @Route("/author/show/{id}")
-     */
-    public function showAction($id)
-    {
-        return $this->render('CLBooksBundle:Author:show.html.twig', array(
-            // ...
-        ));
-    }
+    
 
 }

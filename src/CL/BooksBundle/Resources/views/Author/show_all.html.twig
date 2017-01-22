@@ -1,7 +1,19 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}CLBooksBundle:Author:showAll{% endblock %}
+
 
 {% block body %}
-<h1>Welcome to the Author:showAll page</h1>
+    
+    <a href="/author/create">Dodaj</a>
+    
+    {% for author in authors %}
+
+
+
+        <h3> {{author.name}} </h3>
+        <a href="/author/edit/{{author.id}}">Edytuj</a>
+        <a href="/author/delete/{{author.id}}">Usuń</a>
+
+    {% endfor %}
+
 {% endblock %}
