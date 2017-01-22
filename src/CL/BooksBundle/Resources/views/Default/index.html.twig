@@ -1,1 +1,18 @@
-Hello World!
+{% extends "::base.html.twig" %}
+
+{% block title %}CLBooksBundle:Book:showAll{% endblock %}
+
+{% block body %}
+
+    <div class="jumbotron" style="margin-top: 20px;">
+    <h1> Book Store Workshop Application </h1>
+    <div style="text-align: center;">
+    <a href="/author/create" class="btn btn-primary btn-l">Add Author</a>
+    <a href="/book/create" class="btn btn-primary btn-l">Add Book</a>
+    <a href="/book/showAll" class="btn btn-primary btn-l">Show All Books</a>
+    <a href="/author/showAll" class="btn btn-primary btn-l">Show All Authors</a>
+    </div>
+    </div>
+{% endblock %}
+
+

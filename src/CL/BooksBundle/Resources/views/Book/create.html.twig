@@ -3,7 +3,11 @@
 {% block title %}CLBooksBundle:Book:create{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Book:create page</h1>
+<h1>Welcome to the Book create page</h1>
+<div style="margin-top: 20px;margin-bottom: 20px;">
+            <a href="/" class="btn btn-primary btn-xs">Back to Main Page</a>
+            
+        </div>
 
 {{ form_start(form,{'attr':{'class':'form-group jumbotron'} }) }}
 {{ form_widget(form.title,{'attr':{'class':'form-control','placeholder':'Podaj tytuł'} }) }}

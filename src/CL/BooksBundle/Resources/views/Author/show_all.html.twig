@@ -3,8 +3,9 @@
 
 
 {% block body %}
+    <h1>All author page</h1>
 
-    <a href="/author/create" class="btn btn-primary btn-xs">Dodaj</a>
+    
 
     <table class="table table-stripped">
 
@@ -25,8 +26,13 @@
                 <a href="/author/delete/{{author.id}}" class="btn btn-alert btn-xs">Usuń</a>
             </td>
         </tr>
+    </tbody>
 
 
-    {% endfor %}
+{% endfor %}
+<div style="margin-top: 20px">
+<a href="/" class="btn btn-primary btn-xs">Back to Main Page</a>
+<a href="/author/create" class="btn btn-primary btn-xs">Add author</a>
+</div>
 </tbody>
 {% endblock %}
