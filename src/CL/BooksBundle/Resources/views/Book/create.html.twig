@@ -4,4 +4,13 @@
 
 {% block body %}
 <h1>Welcome to the Book:create page</h1>
+
+{{ form_start(form,{'attr':{'class':'form-group jumbotron'} }) }}
+{{ form_widget(form.title,{'attr':{'class':'form-control','placeholder':'Podaj tytuł'} }) }}
+{{ form_widget(form.description,{'attr':{'class':'form-control','placeholder':'Podaj opis'} }) }}
+{{ form_widget(form.author,{'attr':{'class':'form-control'} }) }}
+{{ form_widget(form.save,{'attr':{'class':'btn btn-success btn-xs'} }) }}
+{{ form_end(form) }}
+
+
 {% endblock %}

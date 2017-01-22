@@ -3,5 +3,34 @@
 {% block title %}CLBooksBundle:Book:showAll{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Book:showAll page</h1>
+
+    <h1> Twoje ksiąźki </h1>
+    <a href="/book/create" class="btn btn-primary btn-xs">Dodaj</a>
+    <table class="table table-stripped">
+
+        <thead>
+            <tr>
+                <th>Autor</th>
+                <th>Tytuł</th>
+                <th>Opis</th>
+                <th>Operacje</th>
+            </tr>
+        </thead>
+        <tr>
+            {% for book in books %}
+            <tbody>
+            <td>
+                {{book.author.name}}
+                {{book.title}}
+                {{book.description}}
+                
+                <a href="/book/edit/{{book.id}}" class="btn btn-alert btn-xs">Edytuj</a>
+                <a href="/book/delete/{{book.id}}" class="btn btn-alert btn-xs">Usuń</a>
+            </td>
+        </tr>
+
+
+    {% endfor %}
+    
+    
 {% endblock %}

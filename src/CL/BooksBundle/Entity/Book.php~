@@ -98,27 +98,4 @@ class Book
     {
         return $this->description;
     }
-
-    /**
-     * Set author
-     *
-     * @param \CL\BooksBundle\Entity\Author $author
-     * @return Book
-     */
-    public function setAuthor(\CL\BooksBundle\Entity\Author $author = null)
-    {
-        $this->author = $author;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return \CL\BooksBundle\Entity\Author 
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
 }
