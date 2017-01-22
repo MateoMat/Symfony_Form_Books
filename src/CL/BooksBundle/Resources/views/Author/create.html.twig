@@ -4,9 +4,10 @@
 
 {% block body %}
     <h1>Welcome to the Author Create Page</h1>
-
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-
+    <form class="jumbotron">
+        {{ form_start(form,{'attr':{'class':'form-group'} }) }}
+        {{ form_widget(form.name,{'attr':{'placeholder':'Imię i Nazwisko','class':'form-control'} }) }}
+        {{ form_widget(form.save,{'attr':{'class':'btn btn-success btn-xs','style':'margin-top:20px;'} }) }}
+        {{ form_end(form) }}
+    </form>
 {% endblock %}
