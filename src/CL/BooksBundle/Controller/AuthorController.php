@@ -15,8 +15,12 @@ class AuthorController extends Controller
      */
     public function showAllAction()
     {
+        $authors=$this->getDoctrine()
+                ->getRepository('CLBooksBundle:Author')
+                ->findAll();
+        
         return $this->render('CLBooksBundle:Author:show_all.html.twig', array(
-            // ...
+            'authors'=>$authors
         ));
     }
 
