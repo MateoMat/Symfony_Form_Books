@@ -11,7 +11,7 @@ use CL\BooksBundle\Repository\AuthorRepository;
 class AuthorController extends Controller
 {
     /**
-     * @Route("/author/showAll")
+     * @Route("/author/showAll",name="CLBook_author_showAll")
      */
     public function showAllAction()
     {
@@ -41,11 +41,21 @@ class AuthorController extends Controller
     /**
      * @Route("/author/create",name="CLBook_author_create")
      */
-    public function createAction()
+    public function createAction(Request $req)
     {
         $author=new Author();
         $url=$this->generateUrl('CLBook_author_create');
         $form=$this->createAuthorForm($author, $url);
+        
+        $form->handleRequest($req);
+        if($form->isSubmitted()){
+            $author=$form->getData();
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($author);
+            $em->flush();
+            
+            return $this->redirect($this->generateUrl('CLBook_author_showAll'));
+        }
         
         return $this->render('CLBooksBundle:Author:create.html.twig', array(
             'form'=>$form->createView()
@@ -77,7 +87,7 @@ class AuthorController extends Controller
                 ->setAction($url)
                 ->setMethod('POST')
                 ->add('name','text')
-                ->add('save','submit',array('label_attr'=>'Zapisz'))
+                ->add('save','submit',array('label'=>'Zapisz'))
                 ->getForm();
         
         return $form;
