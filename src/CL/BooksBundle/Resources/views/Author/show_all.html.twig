@@ -3,17 +3,30 @@
 
 
 {% block body %}
-    
-    <a href="/author/create">Dodaj</a>
-    
-    {% for author in authors %}
 
+    <a href="/author/create" class="btn btn-primary btn-xs">Dodaj</a>
 
+    <table class="table">
 
-        <h3> {{author.name}} </h3>
-        <a href="/author/edit/{{author.id}}">Edytuj</a>
-        <a href="/author/delete/{{author.id}}">Usuń</a>
+        <thead>
+            <tr>
+                <th>Autor</th>
+                <th>Operacje</th>
+            </tr>
+        </thead>
+        <tr>
+            {% for author in authors %}
+            <tbody>
+            <td>
+                {{author.name}}
+            </td>
+            <td>
+                <a href="/author/edit/{{author.id}}" class="btn btn-alert btn-xs">Edytuj</a>
+                <a href="/author/delete/{{author.id}}" class="btn btn-alert btn-xs">Usuń</a>
+            </td>
+        </tr>
+
 
     {% endfor %}
-
+</tbody>
 {% endblock %}
