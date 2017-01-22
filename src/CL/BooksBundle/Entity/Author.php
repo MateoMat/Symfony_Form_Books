@@ -37,6 +37,7 @@ class Author
      */
     private $books;
     
+    //Must be in relation one to many
     public function __construct() {
         $this->books=new ArrayCollection();
     }
