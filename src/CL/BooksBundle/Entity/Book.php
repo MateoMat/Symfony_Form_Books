@@ -20,6 +20,13 @@ class Book
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Author",inversedBy="books")
+     * @ORM\JoinColumn(name="author_id",referencedColumnName="id")
+     */
+    private $author;
 
     /**
      * @var string

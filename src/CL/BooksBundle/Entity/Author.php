@@ -3,6 +3,7 @@
 namespace CL\BooksBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Author
@@ -29,6 +30,17 @@ class Author
     private $name;
 
 
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Book",mappedBy="author")
+     * 
+     */
+    private $books;
+    
+    public function __construct() {
+        $this->books=new ArrayCollection();
+    }
+    
     /**
      * Get id
      *
